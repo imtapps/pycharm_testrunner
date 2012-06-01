@@ -28,7 +28,7 @@ class PyCharmTestSuiteRunner(DjangoTestSuiteRunner):
 
 def build_test_case_path(discovery_root, class_and_method_names, file_path):
     project_path = re.sub(discovery_root, "", file_path)
-    module_path = re.sub(".py", "", project_path[1:])
+    module_path = re.sub("\.py", "", project_path[1:])
     test_case_path = re.sub(os.sep, '.', module_path)
     if not os.environ.get('TEST_FULL_FILE', None):
         test_case_path += "." + '.'.join(class_and_method_names)
